@@ -36,7 +36,13 @@ python manage.py runserver
 &emsp;/docs/ 
 &emsp;&emsp;For authorization use bearer token from user login api - POST /api/account/login
 
-# 3. User 
+
+
+
+# 4. Access API endpoints:
+
+
+## User API Endpoints:
 
 ● Create User:  
 &emsp;- POST /api/account/register   
@@ -58,8 +64,6 @@ python manage.py runserver
 &emsp;&emsp;eg. {"refresh": "string"}
 
 
-# 4. Access API endpoints:
-
 ## Vendor API Endpoints: 
 
 ● Create a new vendor:  
@@ -79,7 +83,6 @@ python manage.py runserver
 
 ● Retrieve a vendor's performance metrics:   
 &emsp;- GET /api/vendors/{vendor_id}/performance
-
 
 
 ## Purchase Order API Endpoints:  
