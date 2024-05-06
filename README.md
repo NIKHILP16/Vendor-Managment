@@ -12,25 +12,25 @@ Build a vendor management app using Django and Django REST Framework. The app wi
    git clone https://github.com/NIKHILP16/VendorManagement.git
    cd project-directory (VendorManagement) 
 
-# 2.Create a virtual environment:
+# 2. Create a virtual environment:
 python -m venv venv  
 source venv/bin/activate  # For Linux/Mac  
 venv\Scripts\activate     # For Windows  
 
-# 3.Install dependencies:
+# 3. Install dependencies:
 pip install -r requirements.txt  
 
-# 4.Database setup:
+# 4. Database setup:
 python manage.py makemigrations  
 python manage.py migrate  
 
 
 ## Usage
 
-# 1.Start the server:
+# 1. Start the server:
 python manage.py runserver  
 
-# 2.Create User 
+# 2. Create User 
 
 ● Create User:  
 &emsp;- POST /api/account/register   
@@ -38,7 +38,7 @@ python manage.py runserver
 
 ● Login User to genrate token:   
 &emsp;- POST /api/account/login      
-&emsp;&emsp;eg. { "email":"n@p.com","password":"Passport1" } 
+&emsp;&emsp;eg. { "email":x@y.xyz","password":"Passport1" } 
 
 ● User Logout:   
 &emsp;- POST /api/account/logout
@@ -52,27 +52,27 @@ python manage.py runserver
 &emsp;&emsp;eg. {"refresh": "string"}
 
 
-# 3.Access API endpoints:
+# 3. Access API endpoints:
 
 
 ## Vendor API Endpoints: 
 
-● Create a new vendor:
+● Create a new vendor:  
 &emsp;- POST /api/vendors/
 
-● List all vendors:
+● List all vendors:  
 &emsp;- GET /api/vendors/  
 
-● Retrieve a specific vendor's details:
+● Retrieve a specific vendor's details:  
 &emsp;- GET /api/vendors/{vendor_id}/
 
-● Update a vendor's details:
+● Update a vendor's details:  
 &emsp;- PUT /api/vendors/{vendor_id}/ 
 
 ● Delete a vendor:  
 &emsp;- DELETE /api/vendors/{vendor_id}/
 
-● Retrieve a vendor's performance metrics: 
+● Retrieve a vendor's performance metrics:   
 &emsp;- GET /api/vendors/{vendor_id}/performance
 
 
