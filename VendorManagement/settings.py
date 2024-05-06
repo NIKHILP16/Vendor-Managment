@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'corsheaders',
     'account',
     'vendor',
+    'purchase_orders',
+    'rest_framework_swagger',
+    'drf_spectacular',
 
 ]
 
@@ -151,6 +154,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 25,
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
    
 }
 
@@ -160,6 +164,14 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=1),
 }
 
+
+SPECTACULAR_SETTINGS = {
+    'SCHEMA_PATH_PREFIX': r'/api/*',
+    'TITLE': 'Vendor Management',
+    'DESCRIPTION': 'Vendor Management API Documentation',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
 
 
 

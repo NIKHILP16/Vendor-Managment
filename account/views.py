@@ -13,7 +13,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 
 class RegistrationView(APIView):
-    
+    serializer_class=RegistrationSerializer
     def post(self, request):
         serializer = RegistrationSerializer(data=request.data)
         if serializer.is_valid():
@@ -33,6 +33,7 @@ class RegistrationView(APIView):
 
 
 class LoginView(APIView):
+    serializer_class=RegistrationSerializer
     def post(self, request):
         if 'email' not in request.data or 'password' not in request.data:
             return Response({'message': 'Credentials missing'}, status=status.HTTP_400_BAD_REQUEST)
@@ -57,6 +58,7 @@ class LogoutView(APIView):
 
 
 class ChangePasswordView(APIView):
+    serializer_class=PasswordChangeSerializer
     permission_classes = [IsAuthenticated, ]
 
     def post(self, request):

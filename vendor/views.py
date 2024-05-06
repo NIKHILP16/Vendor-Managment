@@ -11,32 +11,19 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics, status
 
 class VendorListCreateView(generics.ListCreateAPIView):
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAuthenticated]
     queryset = Vendor.objects.all()
     serializer_class = VendorSerializer
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+    def get_queryset(self):
+        return Vendor.objects.filter(user=self.request.user)
 
 class VendorRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAuthenticated]
     queryset = Vendor.objects.all()
     serializer_class = VendorSerializer
 
-class PurchaseOrderListCreateView(generics.ListCreateAPIView):
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAuthenticated]
-    queryset = PurchaseOrder.objects.all()
-    serializer_class = PurchaseOrderSerializer
-
-class PurchaseOrderRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAuthenticated]
-    queryset = PurchaseOrder.objects.all()
-    serializer_class = PurchaseOrderSerializer
 
 class VendorPerformanceView(generics.RetrieveAPIView):
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAuthenticated]
     queryset = Vendor.objects.all()
     serializer_class = VendorSerializer
 
@@ -47,25 +34,3 @@ class VendorPerformanceView(generics.RetrieveAPIView):
                  'quality_rating_avg': serializer.data['quality_rating_avg'],
                  'average_response_time': serializer.data['average_response_time'],
                  'fulfillment_rate': serializer.data['fulfillment_rate']})
-        # return Response(serializer.data['on_time_delivery_rate', 'quality_rating_avg', 'average_response_time', 'fulfillment_rate'])
-
-class AcknowledgePurchaseOrderView(generics.UpdateAPIView):
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAuthenticated]
-    queryset = PurchaseOrder.objects.all()
-    serializer_class = PurchaseOrderSerializer
-
-    def create(self, request, *args, **kwargs):
-        instance = self.get_object()
-        instance.acknowledgment_date = request.data.get('acknowledgment_date')    #timezone.now()
-        instance.save()
-        response_times = PurchaseOrder.objects.filter(vendor=instance.vendor, acknowledgment_date__isnull=False).values_list('acknowledgment_date', 'issue_date')
-        average_response_time = sum(abs((ack_date - issue_date).total_seconds()) for ack_date, issue_date in response_times) #/ len(response_times)
-        if response_times:
-            average_response_time = total_seconds / len(response_times)
-        else:
-            average_response_time = 0  # Avoid division by zero if there are no response times
-        instance.vendor.average_response_time = average_response_time
-        instance.vendor.save()
-        return Response({'acknowledgment_date': instance.acknowledgment_date})
-
