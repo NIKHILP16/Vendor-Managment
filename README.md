@@ -39,7 +39,7 @@ python manage.py runserver
 
 
 
-# 4. Access API endpoints:
+# 3. Access API endpoints:
 
 
 ## User API Endpoints:
