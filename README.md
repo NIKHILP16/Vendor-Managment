@@ -80,20 +80,20 @@ python manage.py runserver
 ## Purchase Order API Endpoints:  
 
 ● Create a purchase order:  
-    - POST /api/purchase_orders/  
+&emsp;- POST /api/purchase_orders/  
 
 ● List all purchase orders with an option to filter by vendor:  
-    - GET /api/purchase_orders/
+&emsp;- GET /api/purchase_orders/
 
 ● Retrieve details of a specific purchase order:  
-    - GET /api/purchase_orders/{po_id}/ 
+&emsp;- GET /api/purchase_orders/{po_id}/ 
 
 ● Update a purchase order:    
-    - PUT /api/purchase_orders/{po_id}/
+&emsp;- PUT /api/purchase_orders/{po_id}/
 
 ● Delete a purchase order:    
-    - DELETE /api/purchase_orders/{po_id}/  
+&emsp;- DELETE /api/purchase_orders/{po_id}/  
 
 ● Acknowledge POs:  
-    - POST /api/purchase_orders/{po_id}/acknowledge 
+&emsp;- POST /api/purchase_orders/{po_id}/acknowledge 
 
