@@ -5,11 +5,12 @@ Build a vendor management app using Django and Django REST Framework. The app wi
 - Python (version 3.11)
 - Django (version 5.0.4)
 
+
 ## Installation
 
 # 1. Clone the repository:
-   bash:  
-   git clone https://github.com/NIKHILP16/VendorManagement.git
+   bash:      
+   git clone https://github.com/NIKHILP16/VendorManagement.git   
    cd project-directory (VendorManagement) 
 
 # 2. Create a virtual environment:
@@ -30,7 +31,12 @@ python manage.py migrate
 # 1. Start the server:
 python manage.py runserver  
 
-# 2. Create User 
+# 2. Swagger API View 
+● Swagger API Documentation:    
+&emsp;/docs/ 
+&emsp;&emsp;For authorization use bearer token from user login api - POST /api/account/login
+
+# 3. User 
 
 ● Create User:  
 &emsp;- POST /api/account/register   
@@ -52,8 +58,7 @@ python manage.py runserver
 &emsp;&emsp;eg. {"refresh": "string"}
 
 
-# 3. Access API endpoints:
-
+# 4. Access API endpoints:
 
 ## Vendor API Endpoints: 
 
