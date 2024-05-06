@@ -1,4 +1,4 @@
-# VendorManagement
+# Vendor Management
 Build a vendor management app using Django and Django REST Framework. The app will manage vendor profiles and monitor purchase orders and calculate vendor performance metrics.
 
 ## Prerequisites
